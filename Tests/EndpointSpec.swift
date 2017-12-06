@@ -152,7 +152,7 @@ final class EndpointSpec: QuickSpec {
 
                 beforeEach {
                     issue = Issue(title: "Hello, Moya!", createdAt: Date())
-                    endpoint = endpoint.replacing(task: .requestJSONEncodable(issue))
+                    endpoint = endpoint.replacing(task: .requestJSONEncodable(issue, encoder: nil))
                     request = try! endpoint.urlRequest()
                 }
 

@@ -78,8 +78,9 @@ extension Endpoint {
         case .requestData(let data):
             request.httpBody = data
             return request
-        case let .requestJSONEncodable(encodable):
-            return try request.encoded(encodable: encodable)
+        
+        case let .requestJSONEncodable(encodable, encoder):
+            return try request.encoded(encodable: encodable, encoder: encoder)
         case let .requestParameters(parameters, parameterEncoding):
             return try request.encoded(parameters: parameters, parameterEncoding: parameterEncoding)
         case let .uploadCompositeMultipart(_, urlParameters):
